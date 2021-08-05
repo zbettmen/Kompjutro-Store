@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Kompjutro store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="card card1" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Kompjutro Banker</h5>
+
+            <div id="loanOutstanding" hidden>
+                <p id="balanceText">
+                    Outstandingloan: <span id="outstandingLoan"></span></p>
+            </div>
+            <p id="valueOfBalance">Balance:<span id="spanOfBalance"></span></p>
+            <button id="buttonGetLoan" type="button">Get Loan</button>
+
+        </div>
+    </div>
+    <div class="card card2" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Work</h5>
+            <p id="payId"> pay:
+                <span id="payIdSpan"></span>
+            </p>
+            <button id="bankButton">Bank</button>
+            <button id="workButton">Work</button>
+            <button id="repayButton" hidden>Repay</button>
+        </div>
+    </div>
+    <div class="card card3" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Kompjutros</h5>
+            <select class="form-select" id="selectComputer" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+            </select>
+            <h5>Features:</h5>
+            <div id="computerFeatures">
+
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div id="computer-information" class="bg-light p-5 rounded">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <img id="computer-information-image" width="250">
+                        </div>
+                        <div class="col-md-7 d-flex align-items-center">
+                            <div class="card-body">
+                                <h1 id="computer-information-heading" class="card-title">Card title</h5>
+                                    <p id="computer-information-description" class="card-text">This is a wider card with
+                                        supporting text below as a natural lead-in to additional content. This content
+                                        is a little bit longer.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-center">
+                            <h4 id="computer-information-price" class="lead">NOK</h4>
+                            <button id="buyComputer" type="button" class="btn btn-lg btn-primary btn-block">Buy
+                                now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="get_computers.js"></script>
+</body>
+
+</html>
