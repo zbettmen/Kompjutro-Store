@@ -1,18 +1,18 @@
 import { getAllComputers, addComputerById, getComputerById } from "./get_computers.js"
 
 
-let outstandingLoanElement = document.getElementById("outstandingLoan");
-let buttonGetLoanElement = document.getElementById("buttonGetLoan");
+const outstandingLoanElement = document.getElementById("outstandingLoan");
+const buttonGetLoanElement = document.getElementById("buttonGetLoan");
 
-let bankButtonElement = document.getElementById("bankButton");
-let workButtonElement = document.getElementById("workButton");
-let repayButtonElement = document.getElementById("repayButton");
-let payidSpanElement = document.getElementById("payIdSpan");
-let spanOfBalanceElement = document.getElementById("spanOfBalance");
+const bankButtonElement = document.getElementById("bankButton");
+const workButtonElement = document.getElementById("workButton");
+const repayButtonElement = document.getElementById("repayButton");
+const payidSpanElement = document.getElementById("payIdSpan");
+const spanOfBalanceElement = document.getElementById("spanOfBalance");
 
-let selectComputerElement = document.getElementById("selectComputer");
-let buyComputerButtonElement = document.getElementById("buyComputer");
-let loanOutstandingElement = document.getElementById("loanOutstanding");
+const selectComputerElement = document.getElementById("selectComputer");
+const buyComputerButtonElement = document.getElementById("buyComputer");
+const loanOutstandingElement = document.getElementById("loanOutstanding");
 
 let bankBalance = 0;
 let hasLoan = false;
@@ -22,9 +22,15 @@ const addInitalData = () => {
 
 }
 
+/**
+ * Listens to a change event of the select list.
+ * 
+ * @type    {HTMLElement}
+ * @listens document#change
+ */
 buttonGetLoanElement.addEventListener('click', function () {
     let saveLoan = prompt("Take loan");
-    //Make it a string 
+    
     if (bankBalance !== 0) {
         let maxLoanValue = bankBalance * 2;
 
@@ -52,6 +58,12 @@ buttonGetLoanElement.addEventListener('click', function () {
     }
 });
 
+/**
+ * Listens to a click event of the work button.
+ * 
+ * @type    {HTMLElement}
+ * @listens document#click
+ */
 workButtonElement.addEventListener('click', function () {
     workPay += 100;
     payidSpanElement.innerText = workPay;
@@ -73,7 +85,12 @@ bankButtonElement.addEventListener('click', function () {
     outstandingLoanElement.innerText = loanValue
 });
 
-//Bugg när lånet är betalt och pengarna blir minus blir och outstandig lån
+/**
+ * Listens to a click event of the repay loan button.
+ * 
+ * @type    {HTMLElement}
+ * @listens document#click
+ */
 repayButtonElement.addEventListener('click', function () {
     if (hasLoan) {
         if (workPay >= loanValue) {
@@ -95,7 +112,12 @@ repayButtonElement.addEventListener('click', function () {
     }
 
 });
-
+/**
+ * Listens to a change event of the select list.
+ * 
+ * @type    {HTMLElement}
+ * @listens document#change
+ */
 selectComputerElement.addEventListener('change', function () {
     let id = selectComputerElement.options[selectComputerElement.selectedIndex].id;
     addComputerById(id);

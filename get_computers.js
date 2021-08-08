@@ -1,11 +1,18 @@
 const selectComputerElement = document.getElementById("selectComputer");
 const computerFeaturesElement = document.getElementById("computerFeatures");
 
-let computerInformationHeading = document.getElementById("computer-information-heading")
-let computerInformationDescription = document.getElementById("computer-information-description")
-let computerInformationImage = document.getElementById("computer-information-image")
-let computerInformationPrice = document.getElementById("computer-information-price")
+const computerInformationHeading = document.getElementById("computer-information-heading")
+const computerInformationDescription = document.getElementById("computer-information-description")
+const computerInformationImage = document.getElementById("computer-information-image")
+const computerInformationPrice = document.getElementById("computer-information-price")
 
+
+/**
+ * Gets all computers from the API and adds the
+ * data to the DOM.
+ * 
+ * @exports 
+ */
 const url = "https://noroff-komputer-store-api.herokuapp.com";
 export const getAllComputers = () => {
     fetch(`${url}/computers`)
@@ -75,6 +82,12 @@ export const addComputerById = (id) => {
         })
 }
 
+/**
+ * Adding computers to selection area to the DOM.
+ * 
+ * @param   {Object} data
+ * @exports 
+ */
 export const addComputerInformation = (data) => {
     computerInformationHeading.textContent = data.title
     computerInformationDescription.textContent = data.description
@@ -82,7 +95,13 @@ export const addComputerInformation = (data) => {
     computerInformationImage.setAttribute("alt", data.title)
     computerInformationPrice.textContent = data.price;
 }
-
+/**
+ * Adding computers to selection area to the DOM.
+ * 
+ * @param   {Object} data
+ * @param   {String} currency
+ * @exports 
+ */
 export const getComputerById = async (id) => {
     return fetch(`${url}/computers/${id}`)
         .then(response => {
